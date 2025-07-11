@@ -14,7 +14,10 @@ func NewSortService() SortService {
 	strategyMap := make(map[string]strategy.SortStrategy)
 	strategyMap["price"] = strategy.SortByPrice{}
 	strategyMap["ratio"] = strategy.SortBySalesPerView{}
-	return &sortService{}
+
+	return &sortService{
+		strategy: strategyMap,
+	}
 }
 
 type sortService struct {
@@ -26,5 +29,6 @@ func (s *sortService) SortProduct(input *dto.SortProductRequest) ([]dto.Product,
 	if !ok {
 		return nil, fmt.Errorf("invalid sorter")
 	}
+
 	return sorter.Sort(input.Products), nil
 }
