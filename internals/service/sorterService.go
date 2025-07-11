@@ -16,8 +16,8 @@ func NewSortService() SorterService {
 	sorterMap := make(map[string]strategy.SortStrategy)
 	sorterMap[string(enums.SorterTypePriceAsc)] = strategy.SortByPriceAsc{}
 	sorterMap[string(enums.SorterTypeSVRatioAsc)] = strategy.SortBySalesPerViewAsc{}
-	sorterMap[string(enums.SorterTypePriceAsc)] = strategy.SortByPriceDesc{}
-	sorterMap[string(enums.SorterTypeSVRatioAsc)] = strategy.SortBySalesPerViewDesc{}
+	sorterMap[string(enums.SorterTypePriceDesc)] = strategy.SortByPriceDesc{}
+	sorterMap[string(enums.SorterTypeSVRatioDesc)] = strategy.SortBySalesPerViewDesc{}
 
 	return &sortService{
 		sorter: sorterMap,
