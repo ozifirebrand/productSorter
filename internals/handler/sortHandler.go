@@ -39,6 +39,7 @@ func (h *SortHandler) SortProducts(ctx *gin.Context) {
 	if err != nil {
 		response := responses.ErrorResponse("invalid input", http.StatusBadRequest, err.Error())
 		ctx.JSON(http.StatusBadRequest, response)
+		return
 	}
 
 	response := responses.SuccessResponse("Successful", http.StatusOK, data)
