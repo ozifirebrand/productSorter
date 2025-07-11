@@ -2,7 +2,7 @@ package dto
 
 type SortProductRequest struct {
 	Products []Product `json:"products"`
-	Strategy string    `json:"strategy"`
+	SortBy   string    `json:"sort_by"`
 }
 
 type Product struct {
